@@ -4,7 +4,7 @@ var React = require("react");
 
 exports.memo_ = React.memo;
 
-exports.useState_ = function(tuple, initialState) {
+exports.useState_ = function useState_(tuple, initialState) {
   var r = React.useState(initialState);
   var state = r[0];
   var setState = r[1];
@@ -15,17 +15,17 @@ exports.useState_ = function(tuple, initialState) {
   });
 };
 
-exports.useEffect_ = function(eq, key, effect) {
+exports.useEffect_ = function useEffect_(eq, key, effect) {
   var memoizedKey = exports.useMemo_(eq, key);
   React.useEffect(effect, [memoizedKey]);
 };
 
-exports.useLayoutEffect_ = function(eq, key, effect) {
+exports.useLayoutEffect_ = function useLayoutEffect_(eq, key, effect) {
   var memoizedKey = exports.useMemo_(eq, key);
   React.useLayoutEffect(effect, [memoizedKey]);
 };
 
-exports.useReducer_ = function(tuple, reducer, initialState, initialAction) {
+exports.useReducer_ = function useReducer_(tuple, reducer, initialState, initialAction) {
   var r = React.useReducer(reducer, initialState, initialAction);
   var state = r[0];
   var dispatch = r[1];
@@ -50,11 +50,11 @@ exports.useContext_ = React.useContext;
 
 exports.createContext = React.createContext;
 
-exports.contextProvider_ = function(context) {
+exports.contextProvider_ = function contextProvider_(context) {
   return context.Provider;
 };
 
-exports.useMemo_ = function(eq, a) {
+exports.useMemo_ = function useMemo_(eq, a) {
   var memoRef = React.useRef(a);
   if (memoRef.current !== a && !eq(memoRef.current, a)) {
     memoRef.current = a;
@@ -62,12 +62,12 @@ exports.useMemo_ = function(eq, a) {
   return memoRef.current;
 };
 
-exports.useMemoLazy_ = function(eq, key, computeA) {
+exports.useMemoLazy_ = function useMemoLazy_(eq, key, computeA) {
   var memoizedKey = exports.useMemo_(eq, key);
   return React.useMemo(computeA, [memoizedKey]);
 };
 
-exports.unsafeSetDisplayName = function(displayName, component) {
+exports.unsafeSetDisplayName = function unsafeSetDisplayName(displayName, component) {
   component.displayName = displayName;
   component.toString = function() {
     return displayName;
@@ -75,8 +75,6 @@ exports.unsafeSetDisplayName = function(displayName, component) {
   return component;
 };
 
-exports.displayName = function(component) {
-  return typeof component === "string"
-    ? component
-    : component.displayName || "[unknown]";
+exports.displayName = function displayName(component) {
+  return typeof component === "string" ? component : component.displayName || "[unknown]";
 };
