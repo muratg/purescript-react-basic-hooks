@@ -2,6 +2,15 @@
 
 This is an experimental fork to make integration with `create-react-app` and `TypeScript` easier.
 
+Use it with the following override in your `packages.dhall` file:
+
+```dhall
+let overrides =
+   { react-basic-hooks =
+         upstream.react-basic-hooks // { repo = "https://github.com/muratg/purescript-react-basic-hooks.git", version="ff755c67e6ed963a9aaf0500a6a41917df663322" }
+   }
+```
+
 ## About
 
 This is an experimental implementation of React hooks on [react-basic](https://github.com/lumihq/purescript-react-basic).
