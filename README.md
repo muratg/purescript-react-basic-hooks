@@ -1,4 +1,8 @@
-# react-basic-hooks [![CircleCI](https://circleci.com/gh/spicydonuts/purescript-react-basic-hooks.svg?style=svg)](https://circleci.com/gh/spicydonuts/purescript-react-basic-hooks)
+# react-basic-hooks (muratg fork)
+
+This is an experimental fork to make integration with `create-react-app` and `TypeScript` easier.
+
+## About
 
 This is an experimental implementation of React hooks on [react-basic](https://github.com/lumihq/purescript-react-basic).
 
